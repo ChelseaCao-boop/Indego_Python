@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: _site
+  preview:
+    port: 3333
+
+website:
+  title: "Indego Bike Analysis"
+
+  page-footer:
+    left: "Indego Bike"
+    right: "Built with Quarto"
+
+  sidebar:
+    pinned: true
+    align: center
+    style: "docked"
+    search: true
+    collapse-level: 2
+
+    logo: "image/Image01.png"
+    logo-alt: "Indego Bike"
+    logo-href: "index.qmd"
+
+    tools:
+      - icon: github
+        href: "https://github.com/ChelseaCao-boop"
+        aria-label: "ChelseaCao GitHub"
+
+      - icon: github 
+        href: "https://github.com/xueerwuandrea-beep"
+        aria-label: "AndreaWu GitHub"
+
+    contents:
+      - href: index.qmd
+        text: Project Overview
+      - section: "Analysis"
+        contents:
+          - href: "DataCleaning.ipynb"
+            text: "Data collection and cleaning"
+          - href: "Final.ipynb"
+            text: "Data Analysis"
+          - href: "Conclusion.ipynb"
+            text: "Conclusion"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    code-fold: true
+    code-summary: "Show code"
+
+publish:
+  gh-pages: true
+
