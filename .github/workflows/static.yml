@@ -1,0 +1,51 @@
+name: Build and deploy site to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 安装 Quarto（去掉 version: latest 这一句）
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        # 或者你想指定版本的话，用这一种：
+        # with:
+        #   version: "1.5.57"
+
+      # 根据 _quarto.yml 渲染网站（输出到 docs）
+      - name: Render site with Quarto
+        run: quarto render
+
+      # 上传 docs/ 给 GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
