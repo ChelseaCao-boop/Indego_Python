@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Shijie (Chelsea) Cao">
+<meta name="author" content="Xueer (Andrea) Wu">
 
-<title>Indego Bike – Indego Bike Analysis</title>
+<title>Equitable Access to Bike Infrastructure in Philadelphia – Indego Bike Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,8 +97,8 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./image/Image01.png" alt="Indego Bike" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./image/Image01.png" alt="Indego Bike" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./image/image02.png" alt="Indego Bike" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./image/image02.png" alt="Indego Bike" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/ChelseaCao-boop" title="" class="quarto-navigation-tool px-1" aria-label="ChelseaCao GitHub"><i class="bi bi-github"></i></a>
@@ -128,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataCleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data collection and cleaning</span></a>
+ <span class="menu-text">Data Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -155,7 +157,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#requirements-met" id="toc-requirements-met" class="nav-link" data-scroll-target="#requirements-met">Requirements Met</a></li>
+  <li><a href="#about-the-researchers" id="toc-about-the-researchers" class="nav-link" data-scroll-target="#about-the-researchers">About the Researchers</a></li>
   </ul>
 </nav>
     </div>
@@ -164,13 +170,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Indego Bike</h1>
+<h1 class="title">Equitable Access to Bike Infrastructure in Philadelphia</h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Shijie (Chelsea) Cao </p>
+             <p>Xueer (Andrea) Wu </p>
+          </div>
+  </div>
     
   
     
@@ -181,9 +194,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<p>Indego Bike</p>
+<div class="cell">
+<style>
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.2em;
+}
+</style>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>As one of the key transportation modes in residents’ daily lives, cycling plays a crucial role in shaping mobility and public space in Philadelphia. In recent years, the demand for safe, connected, and equitable bicycle infrastructure has continued to grow. However, access to bike lanes and shared mobility options remains uneven across neighborhoods, raising important questions about equity and transportation justice.</p>
+<p>This project examines the equity of access to bicycle infrastructure in Philadelphia, drawing inspiration from the City’s Vision Zero 2030 goals and its broader equity agenda. Our analysis provides a data-driven evaluation of who currently benefits from the existing Indego bike network and where gaps in access may persist.</p>
+<p>The project is guided by two overarching questions:</p>
+<ul>
+<li>Are bike lanes and Indego stations equitably accessible across Philadelphia’s neighborhoods<br>
+</li>
+<li>How can this analysis inform future bike infrastructure expansion so that it aligns with the city’s goals for equity and safety</li>
+</ul>
+<p>To address these questions, we focus on four research components:</p>
+<ol type="1">
+<li>Which areas of the city have high or low access to bicycle infrastructure<br>
+</li>
+<li>How access patterns correlate with socioeconomic and demographic characteristics<br>
+</li>
+<li>Whether a composite Equitable Access Index (EAI) can be developed<br>
+</li>
+<li>Which neighborhoods should be prioritized for future Indego station expansion</li>
+</ol>
+<p>This overview summarizes the motivation for the project and frames the analytical steps presented throughout the site.</p>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<p>Our analysis draws from four primary data sources, each contributing a different dimension to understanding access and equity in Philadelphia’s bike infrastructure system.</p>
+<section id="acs-2023-five-year-estimates" class="level3">
+<h3 class="anchored" data-anchor-id="acs-2023-five-year-estimates">1. ACS 2023 Five-Year Estimates</h3>
+<p>We used demographic and socioeconomic variables from the American Community Survey, including median household income, total population, and zero-vehicle households. These indicators help quantify social need and allow us to examine how bicycle access correlates with neighborhood characteristics.</p>
+</section>
+<section id="indego-bike-share-data" class="level3">
+<h3 class="anchored" data-anchor-id="indego-bike-share-data">2. Indego Bike Share Data</h3>
+<p>We obtained the locations of Indego bike-share stations to measure proximity and accessibility to the system. These data help identify which areas currently benefit from bike-share coverage and which remain underserved.</p>
+</section>
+<section id="opendataphilly-neighborhood-and-census-block-group-boundaries" class="level3">
+<h3 class="anchored" data-anchor-id="opendataphilly-neighborhood-and-census-block-group-boundaries">3. OpenDataPhilly: Neighborhood and Census Block Group Boundaries</h3>
+<p>Spatial boundary files for Philadelphia’s neighborhoods and census block groups provide the geographic units for our analysis. These geometries serve as the base for spatial joins, accessibility calculations, and equity comparisons across neighborhoods.</p>
+</section>
+<section id="osmnx-street-network" class="level3">
+<h3 class="anchored" data-anchor-id="osmnx-street-network">4. OSMnx Street Network</h3>
+<p>Using OSMnx, we extracted Philadelphia’s street network and built a bike-specific network. This enables more accurate infrastructure access measurements, including shortest-path distances to bike lanes and Indego stations, rather than relying on simple straight-line distances.</p>
+</section>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>This project follows an eight-step analytical pipeline to evaluate accessibility and equity across Philadelphia’s bicycle infrastructure system.</p>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">1. Data Collection</h3>
+<p>We first collected data from multiple sources, including ACS socioeconomic indicators, Indego station locations, block group boundaries, and the Philadelphia street network. These datasets provide the demographic, spatial, and network foundations for the analysis.</p>
+</section>
+<section id="cleaning-and-processing" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-and-processing">2. Cleaning and Processing</h3>
+<p>All datasets were cleaned, filtered, and projected into a consistent coordinate system to ensure compatibility. Demographic variables were selected and aggregated at the census block group level, allowing for neighborhood-scale comparison.</p>
+</section>
+<section id="building-the-bike-network" class="level3">
+<h3 class="anchored" data-anchor-id="building-the-bike-network">3. Building the Bike Network</h3>
+<p>Using OSMnx, we extracted Philadelphia’s street network and constructed a bike-specific routing network. This supports more realistic distance calculations than straight-line methods.</p>
+</section>
+<section id="measuring-accessibility" class="level3">
+<h3 class="anchored" data-anchor-id="measuring-accessibility">4. Measuring Accessibility</h3>
+<p>For each census block group, we calculated accessibility metrics such as network distance to the nearest bike lane and distance to the nearest Indego station. These values quantify how easily residents can reach bicycle infrastructure.</p>
+</section>
+<section id="joining-with-acs-demographics" class="level3">
+<h3 class="anchored" data-anchor-id="joining-with-acs-demographics">5. Joining with ACS Demographics</h3>
+<p>Accessibility metrics were linked with socioeconomic indicators such as median income, population, and zero-vehicle households. This integration allows us to compare infrastructure access with underlying neighborhood characteristics.</p>
+</section>
+<section id="constructing-need-and-access-scores" class="level3">
+<h3 class="anchored" data-anchor-id="constructing-need-and-access-scores">6. Constructing Need and Access Scores</h3>
+<p>We normalized demographic variables to develop a Need Score and standardized accessibility values to create an Access Score. Together, these metrics provide a consistent basis for identifying inequities in infrastructure distribution.</p>
+</section>
+<section id="equity-gap-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="equity-gap-analysis">7. Equity Gap Analysis</h3>
+<p>By comparing social need with infrastructure access, we created an Equity Gap Index for each block group. Areas with high need but low access were identified as potential priority zones for future bike-share or bike-lane investments.</p>
+</section>
+<section id="mapping-and-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-and-visualization">8. Mapping and Visualization</h3>
+<p>Results were visualized through choropleth maps, interactive Folium layers, and ranked priority lists. These visualizations help interpret spatial patterns and support data-driven planning decisions.</p>
+</section>
+</section>
+<section id="requirements-met" class="level2">
+<h2 class="anchored" data-anchor-id="requirements-met">Requirements Met</h2>
+<p>This project aims to meet the following assignment requirements:</p>
+<p><strong>Data Collection:</strong><br>
+Data is collected through a means more sophisticated than downloading (API).</p>
+<p><strong>Data Sources:</strong><br>
+It combines data collected from 4 different sources.</p>
+<p><strong>Spatial Analysis:</strong><br>
+The analysis of the data is reasonably complex (geospatial joins/operations, etc.).</p>
+<p><strong>Street Network:</strong><br>
+Use OSMnx or pandana to analyze street networks.</p>
+<p><strong>Interactive Visuals:</strong><br>
+Include multiple interactive visualizations with interactivity (cross-filtering, widgets, etc.).</p>
+</section>
+<section id="about-the-researchers" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-researchers">About the Researchers</h2>
+<p>Shijie (Chelsea) Cao and Xueer (Andrea) Wu are two Master students of City Planning at the University of Pennsylvania. This project was completed for MUSA 5500: Geospatial Data Science in Python.</p>
 
 
 </section>

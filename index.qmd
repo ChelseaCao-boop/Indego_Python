@@ -1,9 +1,111 @@
 ---
-title: "Indego Bike"
+title: "Equitable Access to Bike Infrastructure in Philadelphia"
+author:
+  - name: "Shijie (Chelsea) Cao"
+  - name: "Xueer (Andrea) Wu"
 page-layout: full
 toc: true
 toc-depth: 2
+
 ---
 
-# Overview
-Indego Bike
+::: {.cell}
+<style>
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.2em;
+}
+</style>
+:::
+
+## Introduction
+
+As one of the key transportation modes in residents’ daily lives, cycling plays a crucial role in shaping mobility and public space in Philadelphia. In recent years, the demand for safe, connected, and equitable bicycle infrastructure has continued to grow. However, access to bike lanes and shared mobility options remains uneven across neighborhoods, raising important questions about equity and transportation justice.
+
+This project examines the equity of access to bicycle infrastructure in Philadelphia, drawing inspiration from the City’s Vision Zero 2030 goals and its broader equity agenda. Our analysis provides a data-driven evaluation of who currently benefits from the existing Indego bike network and where gaps in access may persist.
+
+The project is guided by two overarching questions:
+
+- Are bike lanes and Indego stations equitably accessible across Philadelphia’s neighborhoods  
+- How can this analysis inform future bike infrastructure expansion so that it aligns with the city’s goals for equity and safety  
+
+To address these questions, we focus on four research components:
+
+1. Which areas of the city have high or low access to bicycle infrastructure  
+2. How access patterns correlate with socioeconomic and demographic characteristics  
+3. Whether a composite Equitable Access Index (EAI) can be developed  
+4. Which neighborhoods should be prioritized for future Indego station expansion  
+
+This overview summarizes the motivation for the project and frames the analytical steps presented throughout the site.
+
+
+## Data Sources
+
+Our analysis draws from four primary data sources, each contributing a different dimension to understanding access and equity in Philadelphia’s bike infrastructure system.
+
+### 1. ACS 2023 Five-Year Estimates  
+We used demographic and socioeconomic variables from the American Community Survey, including median household income, total population, and zero-vehicle households. These indicators help quantify social need and allow us to examine how bicycle access correlates with neighborhood characteristics.
+
+### 2. Indego Bike Share Data  
+We obtained the locations of Indego bike-share stations to measure proximity and accessibility to the system. These data help identify which areas currently benefit from bike-share coverage and which remain underserved.
+
+### 3. OpenDataPhilly: Neighborhood and Census Block Group Boundaries  
+Spatial boundary files for Philadelphia’s neighborhoods and census block groups provide the geographic units for our analysis. These geometries serve as the base for spatial joins, accessibility calculations, and equity comparisons across neighborhoods.
+
+### 4. OSMnx Street Network  
+Using OSMnx, we extracted Philadelphia’s street network and built a bike-specific network. This enables more accurate infrastructure access measurements, including shortest-path distances to bike lanes and Indego stations, rather than relying on simple straight-line distances.
+
+
+## Methodology
+
+This project follows an eight-step analytical pipeline to evaluate accessibility and equity across Philadelphia’s bicycle infrastructure system.
+
+### 1. Data Collection  
+We first collected data from multiple sources, including ACS socioeconomic indicators, Indego station locations, block group boundaries, and the Philadelphia street network. These datasets provide the demographic, spatial, and network foundations for the analysis.
+
+### 2. Cleaning and Processing  
+All datasets were cleaned, filtered, and projected into a consistent coordinate system to ensure compatibility. Demographic variables were selected and aggregated at the census block group level, allowing for neighborhood-scale comparison.
+
+### 3. Building the Bike Network  
+Using OSMnx, we extracted Philadelphia’s street network and constructed a bike-specific routing network. This supports more realistic distance calculations than straight-line methods.
+
+### 4. Measuring Accessibility  
+For each census block group, we calculated accessibility metrics such as network distance to the nearest bike lane and distance to the nearest Indego station. These values quantify how easily residents can reach bicycle infrastructure.
+
+### 5. Joining with ACS Demographics  
+Accessibility metrics were linked with socioeconomic indicators such as median income, population, and zero-vehicle households. This integration allows us to compare infrastructure access with underlying neighborhood characteristics.
+
+### 6. Constructing Need and Access Scores  
+We normalized demographic variables to develop a Need Score and standardized accessibility values to create an Access Score. Together, these metrics provide a consistent basis for identifying inequities in infrastructure distribution.
+
+### 7. Equity Gap Analysis  
+By comparing social need with infrastructure access, we created an Equity Gap Index for each block group. Areas with high need but low access were identified as potential priority zones for future bike-share or bike-lane investments.
+
+### 8. Mapping and Visualization  
+Results were visualized through choropleth maps, interactive Folium layers, and ranked priority lists. These visualizations help interpret spatial patterns and support data-driven planning decisions.
+
+
+## Requirements Met
+
+This project aims to meet the following assignment requirements:
+
+**Data Collection:**  
+Data is collected through a means more sophisticated than downloading (API).
+
+**Data Sources:**  
+It combines data collected from 4 different sources.
+
+**Spatial Analysis:**  
+The analysis of the data is reasonably complex (geospatial joins/operations, etc.).
+
+**Street Network:**  
+Use OSMnx or pandana to analyze street networks.
+
+**Interactive Visuals:**  
+Include multiple interactive visualizations with interactivity (cross-filtering, widgets, etc.).
+
+
+## About the Researchers
+
+Shijie (Chelsea) Cao and Xueer (Andrea) Wu are two Master students of City Planning at the University of Pennsylvania. This project was completed for MUSA 5500: Geospatial Data Science in Python.

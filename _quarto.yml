@@ -18,7 +18,7 @@ website:
     search: true
     collapse-level: 2
 
-    logo: "image/Image01.png"
+    logo: "image/image02.png"
     logo-alt: "Indego Bike"
     logo-href: "index.qmd"
 
@@ -37,7 +37,7 @@ website:
       - section: "Analysis"
         contents:
           - href: "DataCleaning.ipynb"
-            text: "Data collection and cleaning"
+            text: "Data Processing"
           - href: "Final.ipynb"
             text: "Data Analysis"
           - href: "Conclusion.ipynb"
@@ -51,7 +51,16 @@ format:
     code-overflow: wrap
     code-fold: true
     code-summary: "Show code"
+    execute:
+      echo: true
+      output: false
+      warning: false
+      message: false
+
+
 
 publish:
   gh-pages: true
+
+
 
